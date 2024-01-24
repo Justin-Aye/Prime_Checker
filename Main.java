@@ -9,7 +9,7 @@ public class Main {
 
     public static void main(String[] args) {
         
-        Shared_Resources sr = new Shared_Resources();
+        
 
         // User Input
         // Scanner sc = new Scanner(System.in);
@@ -20,7 +20,8 @@ public class Main {
         // num_threads = Integer.parseInt(sc.nextLine());
         // sc.close();
 
-        limit = (int) 1e7;
+        Shared_Resources sr = new Shared_Resources();
+        limit = (int) 1000;
 
         ArrayList<Thread> threads = new ArrayList<>();
 
@@ -31,6 +32,7 @@ public class Main {
             // Run 3 times for cache
             for (int i = 0; i < 3; i++){
                 run(num_threads, sr, threads);
+
                 threads.clear();
                 sr.clear_primes();
             }
@@ -38,7 +40,6 @@ public class Main {
             // Run 5 times for average
             for (int i = 0; i < 5; i++){
                 ave += run(num_threads, sr, threads);
-                System.err.println(ave);
 
                 threads.clear();
                 sr.clear_primes();
@@ -49,6 +50,7 @@ public class Main {
 
             System.gc();
         }
+
 
         // System.out.printf("\n%d primes were found.\n", rs.primes.size());    
         // System.out.printf("Execution Time: %d ms\n", duration);  
